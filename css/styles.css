@@ -29,3 +29,15 @@ body {
     border-style: dashed;
 }
 
+/* style button */
+/* call upon the custom button class */
+ div .button-start {
+    /* change button size */
+    font-size: 36px;
+    /*change button font */
+    font-family: monospace;
+    /*center button*/
+    align-items: center;
+    display: block;
+    margin: auto;
+}
