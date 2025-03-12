@@ -41,3 +41,13 @@ body {
     display: block;
     margin: auto;
 }
+
+/* style inventory button */
+
+.inventory {
+    /*style button*/
+
+    font-family: monospace;
+    color: white;
+    background-color: #999371;
+}

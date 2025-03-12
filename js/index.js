@@ -13,6 +13,9 @@ const journeyTwoRef = document.querySelector("#journey2");
 // reference third div
 const journeyThreeRef = document.querySelector("#journey3");
 
+// make a reference to inventory button
+const inventoryButtonRef = document.querySelector(".inventory");
+
 function startJourney() {
 
 
@@ -90,7 +93,7 @@ function askPlayer() {
     // adds teddy bear to the inventory
    if(userInput == 'Teddy Bear') {
        
-        journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected!" + "</h4>";
+        journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected! It still feels so soft" + "</h4>";
         journeyThreeRef.style.color = 'white';
         journeyThreeRef.style.fontFamily = 'monospace';
         // add teddy bear to player inventory array 
@@ -104,7 +107,7 @@ function askPlayer() {
        };
        
        playerInventory.push(myteddyBear);
-       leaveHouse;
+       leaveHouse();
      
        
          
@@ -129,12 +132,12 @@ function askPlayer() {
      }
      // add knife to player inventory
      playerInventory.push(myKnife);
-     leaveHouse;
+     leaveHouse();
    }
 // snacks choice
    if(userInput == 'Snacks') {
      // add if statement that displays text
-    journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected!" + "</h4>";
+    journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected! Your stomach begins to growl..." + "</h4>";
     journeyThreeRef.style.color = 'white';
     journeyThreeRef.style.fontFamily = 'monospace';
     
@@ -150,12 +153,12 @@ function askPlayer() {
 
     // add snacks to player inventory
     playerInventory.push(mySnacks);
-    leaveHouse;
+    leaveHouse();
    }
 // crown choice
    if(userInput == 'Crown') {
      // add if statement that displays text
-    journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected!" + "</h4>";
+    journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected! Some of the jewels have fallen out of the plastic" + "</h4>";
     journeyThreeRef.style.color = 'white';
     journeyThreeRef.style.fontFamily = 'monospace';
 
@@ -173,8 +176,8 @@ function askPlayer() {
     // add crown to player inventory
 
     playerInventory.push(myCrown);
-    leaveHouse;
-  
+    leaveHouse();
+    
    }
 
    
@@ -184,11 +187,25 @@ function askPlayer() {
 // adds function that continues the story 
 
 function leaveHouse() {
+    console.log(leaveHouse);
     journeyThreeRef.innerHTML += "You hear strange noises coming from outside and decide to leave before it gets too dangerous";
     // create a button
     const leaveHouseButton = document.createElement("button");
     leaveHouseButton.textContent = "Leave";
     leaveHouseButton.id = "leaveButton";
+    document.body.appendChild(leaveHouseButton);
+
+    // style button
+
+    leaveHouseButton.style.color = 'white';
+    leaveHouseButton.style.fontFamily = 'monospace';
+    leaveHouseButton.style.backgroundColor = 'black';
+    
+    
+    
+}
+
+function showInventory() {
     
     
 }
