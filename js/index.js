@@ -14,8 +14,13 @@ const journeyRef = document.querySelector("#journey");
 const journeyTwoRef = document.querySelector("#journey2");
 
 // reference third div
-
 const journeyThreeRef = document.querySelector("#journey3");
+
+// func create button for third 
+
+function createButton() {
+    
+}
 function startJourney() {
 
 
@@ -147,6 +152,7 @@ function askPlayer() {
 
 }
 
+// continue journey with function
 
 
 };
