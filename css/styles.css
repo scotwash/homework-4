@@ -1,3 +1,4 @@
+/* add css reset*/
 * {
     margin: 0;
     padding: 0;
@@ -15,15 +16,16 @@ h1 {
     text-align: center;
     color: white;
     font-family: monospace;
+    /*Change background color under heading */
+    background-color: #999371;
 }
 
  /* set background color and add border */
 body {
+    
     background-color: #201b12;
-    border;
-}
-
-body > ul {
-    margin-left: 32px;
+    /* add dashed border*/
+    border-color: #6D694D;
+    border-style: dashed;
 }
 
