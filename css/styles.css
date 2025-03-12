@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* change font size, color, and center text */
+h1 {
+    margin-bottom: 16px;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+}
+
+ /* set background color and add border */
+body {
+    background-color: #201b12;
+    border;
+}
+
+body > ul {
+    margin-left: 32px;
+}
+
