@@ -120,6 +120,7 @@ function askPlayer() {
    if(userInput == 'Teddy Bear') {
        
         journeyThreeRef.innerHTML += "<h4>" + userInput + " has been selected! It still feels so soft" + "</h4>";
+        console.log(playerInventory);
         journeyThreeRef.style.color = 'white';
         journeyThreeRef.style.fontFamily = 'monospace';
         // add teddy bear to player inventory array 
@@ -130,9 +131,10 @@ function askPlayer() {
         description: "A tattered old bear, but you can sense it is filled with many wonderful memories",
         // this attribute causes the ending where the player gives the teddy bear to the monster and the monster takes the player with them
         type: "memory",
+        
        };
-       
        playerInventory.push(myteddyBear);
+      
        leaveHouse();
      
        
@@ -209,7 +211,7 @@ function askPlayer() {
 
    
  
-}
+
 
 // adds function that continues the story 
 
@@ -313,7 +315,12 @@ newButton.onclick = bakeryChoices;
     
     document.querySelector("#leavebtn").style.fontFamily = 'monospace';
     document.querySelector("#leavebtn").style.color = 'white';
-    document.querySelector("#leavebtn").style.backgroundColor = " #999371"
+    document.querySelector("#leavebtn").style.backgroundColor = " #999371";
+
+    // link buttons to functions
+
+    document.querySelector("#leavebtn").onclick = runBakery;
+    document.querySelector("#staybtn").onclick = stayBakery;
 
         
     }
@@ -324,11 +331,7 @@ newButton.onclick = bakeryChoices;
 
     // function that searches inventory
 
-    function searchInventory() {
-        if(playerInventory.type == "memory")
-            console.log("success")
-
-    }
+    
 
         
 
@@ -338,7 +341,23 @@ newButton.onclick = bakeryChoices;
 
         function stayBakery(){
 
-            console.log("hi")
+            // add new text
+            console.log(playerInventory);
+            const newStayBakerySection = document.createElement("section");
+            const newStayBakerySectiontext = document.createTextNode("You decide to stay but you hear the creature growling, it seems to be smelling whatever you're carrying...");
+            newStayBakerySection.id = "staytext";
+            searchInventory();
+            // style text
+            newStayBakerySection.style.fontFamily= 'monospace';
+            newStayBakerySection.style.fontSize = "23";
+            newStayBakerySection.style.color = 'white';
+
+            // append
+
+            newStayBakerySection.appendChild(newStayBakerySectiontext);
+            document.body.appendChild(newStayBakerySection);
+            
+            
 
             };
 
@@ -348,4 +367,35 @@ newButton.onclick = bakeryChoices;
         
     }
 
-}
+    function searchInventory() {
+        if(userInput == "Knife") {
+        const knifeEnding = document.createElement("section");
+        knifeEnding.textContent = "Thinking quick on your feet you charge towards the creature and stab in the heart! Even if it was a monster you still feel a bit of guilt. It was still somewhat human after all, but you have no time to worry about that, you have to find a way out of here.. To be continued...";
+        knifeEnding.id = "knifeId";
+
+        knifeEnding.innerHTML += "<h1> " + knifeEnding + "/<h1>"
+
+        }
+
+        if(userInput == "Snack") {
+        const snackEnding = document.createElement("section");
+        snackEnding.textContent = "You quickly throw the bag of food you were previously holding in order to distract the creature, and it quickly grabs it. However it sits at your feet as its stomach grumbles more, it appears it wants you to cook more. It doesn't look like you have time with this, butt it does not seem like it is going to leave you alone. You sigh and spend the rest of the day cooking for the creature. Maybe it can help you find the exit though... To be continued...";
+        snackEnding.id = "snackId";
+
+        snackEnding.innerHTML += "<h1> " + snackEnding + "</h1>";
+        
+        }
+
+        if(userInput == "Teddy Bear") {
+            const bearEnding = document.createElement("section");
+            bearEnding.textContent = "You shakily hold out the teddy bear, and the creature violently snatches it from your hands. It is about to rip it to shreds before it looks at it solemnly and hugs it close. The creature gives you one last look before it leaves. You closely follow it to leave the building and you look in horror as you see a coomplete horde of them outside... To Be Continued...";
+            bearEnding.id = "bearId";
+
+            bearEnding.innerHTML += "<h1> " + bearEnding + "</h1>";
+        }
+
+        if(userInput == "")
+        }
+ 
+     }
+    }

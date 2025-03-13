@@ -30,6 +30,8 @@ h1 {
 body {
     
     background-color: #201b12;
+    border: #999371;
+    border
 }
 
 /* style button */
@@ -65,3 +67,6 @@ body {
 #textChoice {
     font-size: 23px;
 }
+
+/* changing the style of the ending texts */
+
