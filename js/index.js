@@ -5,21 +5,6 @@ let playerInventory = [];
 // give inventory custom id so we can easily find it later
 playerInventory.id = "inventoryId";
 
-// display player inventory with button
-// create a button 
-
-const showInventoryButton = document.createElement("button");
-showInventoryButton.textContent = "Inventory";
-document.body.appendChild(showInventoryButton);
-
-
-
-
-// style button
-
-showInventoryButton.style.color = 'white';
-showInventoryButton.style.fontFamily = 'monospace';
-showInventoryButton.style.backgroundColor = ' #999371';
 
 
 // Choose your own adventure function
@@ -305,7 +290,7 @@ newButton.onclick = bakeryChoices;
 
     newBakeryChoiceSection.innerHTML += '<button id = "staybtn">Stay</button>';
     newBakeryChoiceSection.innerHTML += '<button id = "leavebtn">Leave</button>';
-    console.log(newBakeryChoiceSection.innerHTML);
+    
     // style new buttons
 
     document.querySelector("#staybtn").style.fontFamily = 'monospace';
@@ -346,7 +331,7 @@ newButton.onclick = bakeryChoices;
             const newStayBakerySection = document.createElement("section");
             const newStayBakerySectiontext = document.createTextNode("You decide to stay but you hear the creature growling, it seems to be smelling whatever you're carrying...");
             newStayBakerySection.id = "staytext";
-            searchInventory();
+            
             // style text
             newStayBakerySection.style.fontFamily= 'monospace';
             newStayBakerySection.style.fontSize = "23";
@@ -357,7 +342,26 @@ newButton.onclick = bakeryChoices;
             newStayBakerySection.appendChild(newStayBakerySectiontext);
             document.body.appendChild(newStayBakerySection);
             
-            
+           // create new button 
+           
+           const nextSection = document.createElement("section");
+           const nextSectionBtn = document.createElement("button");
+           nextSectionBtn.textContent = "Continue";
+           nextSectionBtn.id = "nextSectionId";
+
+           // append 
+
+           nextSection.appendChild(nextSectionBtn);
+           document.body.appendChild(nextSection);
+
+           // style
+
+           nextSectionBtn.style.color = 'white';
+           nextSectionBtn.style.font = 'monospace';
+           nextSectionBtn.style.backgroundColor = ' #999371';
+
+        nextSectionBtn.onclick = searchInventory;
+          
 
             };
 
@@ -368,33 +372,37 @@ newButton.onclick = bakeryChoices;
     }
 
     function searchInventory() {
-        if(userInput == "Knife") {
-        const knifeEnding = document.createElement("section");
-        knifeEnding.textContent = "Thinking quick on your feet you charge towards the creature and stab in the heart! Even if it was a monster you still feel a bit of guilt. It was still somewhat human after all, but you have no time to worry about that, you have to find a way out of here.. To be continued...";
-        knifeEnding.id = "knifeId";
 
-        knifeEnding.innerHTML += "<h1> " + knifeEnding + "/<h1>"
+    let userInput = prompt("List the item you chose earlier.");  
+    
+        const finalSection = document.createElement("section");
+        document.body.appendChild(finalSection);
+        
+
+
+        if(userInput == "Knife") {
+
+        
+
+        finalSection.innerHTML +=  " <h1> Thinking quick on your feet you charge towards the creature and stab in the heart! Even if it was a monster you still feel a bit of guilt. It was still somewhat human after all, but you have no time to worry about that, you have to find a way out of here.. To be continued...</h1>";
 
         }
 
         if(userInput == "Snack") {
-        const snackEnding = document.createElement("section");
-        snackEnding.textContent = "You quickly throw the bag of food you were previously holding in order to distract the creature, and it quickly grabs it. However it sits at your feet as its stomach grumbles more, it appears it wants you to cook more. It doesn't look like you have time with this, butt it does not seem like it is going to leave you alone. You sigh and spend the rest of the day cooking for the creature. Maybe it can help you find the exit though... To be continued...";
-        snackEnding.id = "snackId";
-
-        snackEnding.innerHTML += "<h1> " + snackEnding + "</h1>";
+    
+        finalSection.innerHTML += "<h1> You quickly throw the bag of food you were previously holding in order to distract the creature, and it quickly grabs it. However it sits at your feet as its stomach grumbles more, it appears it wants you to cook more. It doesn't look like you have time with this, butt it does not seem like it is going to leave you alone. You sigh and spend the rest of the day cooking for the creature. Maybe it can help you find the exit though... To be continued... </h1>";
         
         }
 
         if(userInput == "Teddy Bear") {
-            const bearEnding = document.createElement("section");
-            bearEnding.textContent = "You shakily hold out the teddy bear, and the creature violently snatches it from your hands. It is about to rip it to shreds before it looks at it solemnly and hugs it close. The creature gives you one last look before it leaves. You closely follow it to leave the building and you look in horror as you see a coomplete horde of them outside... To Be Continued...";
-            bearEnding.id = "bearId";
-
-            bearEnding.innerHTML += "<h1> " + bearEnding + "</h1>";
+         
+            finalSection.innerHTML += "<h1> You shakily hold out the teddy bear, and the creature violently snatches it from your hands. It is about to rip it to shreds before it looks at it solemnly and hugs it close. The creature gives you one last look before it leaves. You closely follow it to leave the building and you look in horror as you see a coomplete horde of them outside... To Be Continued... </h1>";
         }
 
-        if(userInput == "")
+        if(userInput == "Crown") {
+            finalSection.innerHTML += "<h1> You pull out the old, broken crown. But before you have a chance to even act, the creature makes a loud screeching noise. Other creatures begin to swarm you but weirdly neough they do not attack. They appear ti just be worshipping you for now. What exactly is going on around here... To Be Continued...</h1>";
+
+        }
         }
  
      }
