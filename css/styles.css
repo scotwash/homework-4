@@ -1,8 +1,9 @@
 /* add css reset*/
 * {
     margin: 0;
-    padding: 0;
+    padding: 15px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 html,
@@ -20,13 +21,15 @@ h1 {
     background-color: #999371;
 }
 
+#story-title {
+    height: 100%;
+    width: 100%;
+}
+
  /* set background color and add border */
 body {
     
     background-color: #201b12;
-    /* add dashed border*/
-    border-color: #6D694D;
-    border-style: dashed;
 }
 
 /* style button */
@@ -57,4 +60,8 @@ body {
 #journey3 {
     font-family: monospace;
     color: white; 
+}
+
+#textChoice {
+    font-size: 23px;
 }

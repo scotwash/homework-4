@@ -33,6 +33,10 @@ const journeyTwoRef = document.querySelector("#journey2");
 // reference third div
 const journeyThreeRef = document.querySelector("#journey3");
 
+// reference leave and stay buttons
+const leaveBtnRef = document.querySelector("#leavebtn");
+const stayBtnRef = document.querySelector("#staybtn");
+
 
 
 
@@ -282,7 +286,36 @@ newButton.onclick = bakeryChoices;
     
    // display choices
    function bakeryChoices(){
-    const newBakeryChoice
+    const newBakeryChoiceSection = document.createElement("section");
+    const newBakeryChoiceSectionText = document.createTextNode("The creature comes closer to you and you realize something horrifying. The creature breathes heavily, and its form did appear to be human at one point but it no longer appears that way. Its hair reaches its feet and looks to be unkempt, very clearly not being cleaned in a while. There are scales replacing the skin it once had, and protrudes out of rotting flesh. Do you attempt to leave or do you stay?");
+    newBakeryChoiceSectionText.id = "textChoice";
+
+    // append 
+    newBakeryChoiceSection.appendChild(newBakeryChoiceSectionText);
+    document.body.appendChild(newBakeryChoiceSection);
+
+
+    //style text
+    newBakeryChoiceSection.style.fontFamily = 'monospace';
+    newBakeryChoiceSection.style.color = 'white';
+
+    // make new buttons
+
+    newBakeryChoiceSection.innerHTML += '<button id = "staybtn">Stay</button>';
+    newBakeryChoiceSection.innerHTML += '<button id = "leavebtn">Leave</button>';
+    console.log(newBakeryChoiceSection.innerHTML);
+    // style new buttons
+
+    document.querySelector("#staybtn").style.fontFamily = 'monospace';
+    document.querySelector("#staybtn").style.color = 'white';
+    document.querySelector("#staybtn").style.backgroundColor = " #999371";
+
+    
+    document.querySelector("#leavebtn").style.fontFamily = 'monospace';
+    document.querySelector("#leavebtn").style.color = 'white';
+    document.querySelector("#leavebtn").style.backgroundColor = " #999371"
+
+        
     }
 
 
