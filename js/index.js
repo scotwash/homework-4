@@ -2,6 +2,22 @@
 
 let playerInventory = [];
 
+// display player inventory with button
+// create a button 
+
+const showInventoryButton = document.createElement("button");
+showInventoryButton.textContent = "Inventory";
+document.body.appendChild(showInventoryButton);
+
+
+
+// style button
+
+showInventoryButton.style.color = 'white';
+showInventoryButton.style.fontFamily = 'monospace';
+showInventoryButton.style.backgroundColor = ' #999371';
+
+
 // Choose your own adventure function
 
 // Reference journey element
@@ -13,8 +29,8 @@ const journeyTwoRef = document.querySelector("#journey2");
 // reference third div
 const journeyThreeRef = document.querySelector("#journey3");
 
-// make a reference to inventory button
-const inventoryButtonRef = document.querySelector(".inventory");
+
+
 
 function startJourney() {
 
@@ -169,6 +185,7 @@ function askPlayer() {
         img: "https://www.melissaanddoug.com/cdn/shop/products/Dress-Up-Tiaras-008525-1-Detail-Photo_7b7f6bb1-1390-49d8-a500-ba0a8279f61f.jpg?v=1664906622&width=750",
         description: "A crown you used to have and played princess with your friends.",
         // this attribute gives another joke ending where the player rules over the monsters
+        type: "ruler";
 
 
     }
@@ -187,31 +204,224 @@ function askPlayer() {
 // adds function that continues the story 
 
 function leaveHouse() {
-    console.log(leaveHouse);
-    journeyThreeRef.innerHTML += "You hear strange noises coming from outside and decide to leave before it gets too dangerous";
-    // create a button
-    const leaveHouseButton = document.createElement("button");
-    leaveHouseButton.textContent = "Leave";
-    leaveHouseButton.id = "leaveButton";
-    document.body.appendChild(leaveHouseButton);
+    
+    journeyThreeRef.innerHTML += "You hear strange noises coming from outside and decide to leave before it gets too dangerous. Which location do you go to?";
+    
+    // create a button to continue with the location
+    const bakeryButton = document.createElement("button");
+    bakeryButton.textContent = "Bakery";
+    document.body.appendChild(bakeryButton);
+    
+    bakeryButton.onclick = bakeryEvent;
+    
 
-    // style button
 
-    leaveHouseButton.style.color = 'white';
-    leaveHouseButton.style.fontFamily = 'monospace';
-    leaveHouseButton.style.backgroundColor = 'black';
+    bakeryButton.style.fontFamily = 'monospace';
+    bakeryButton.style.color = 'white';
+    bakeryButton.style.backgroundColor = " #999371";
+
+    const parkButton = document.createElement("button");
+    parkButton.textContent = "Park";
+    document.body.appendChild(parkButton);
+
+    parkButton.onclick = parkEvent;
     
     
+
+
+
+    
+
+    
+
     
 }
 
-function showInventory() {
-    
-    
+
+function parkEvent() {
+
 }
+
+function bakeryEvent() {
+
+    // remove button
+
+    // create a new image
+    
+    const oldBakery = document.createElement("img");
+    oldBakery.src = "https://i.redd.it/dlkoxge42i841.jpg";
+    oldBakery.height = "250";
+    document.body.appendChild(oldBakery);
+
+    // create a new section for text 
+
+    const oldBakerySection = document.createElement("section");
+    const oldBakeryText = document.createTextNode("The bakery is mostly empty, with only a few stale cakes in the display, but you can see a strange figure come near you... what do you do?");
+    oldBakerySection.style.color = "white";
+    oldBakerySection.style.fontFamily = "monospace";
+
+
+    oldBakerySection.appendChild(oldBakeryText);
+    document.body.appendChild(oldBakerySection);
+
+    // display choices
+
+    const bakeryRun = document.createElement("button");
+    bakeryRun.textContent = "Run";
+    oldBakerySection.appendChild(bakeryRun);
+    bakeryRun.onclick = runBakery;
+
+    const bakeryStay = document.createElement("button");
+    bakeryStay.textContent = "Stay";
+    oldBakerySection.appendChild(bakeryStay);
+    bakeryStay.onclick = stayBakery;
+
+    
+    
+   
+
+   
+    
+    // func bakery stay
+
+    function stayBakery(){
+
+        const stayBakerySection = document.createElement("section");
+        const stayBakerySectionText = document.createTextNode("You stay at the bakery, but you find that the creature keeps getting closer.");
+
+
+
+        stayBakerySection.appendChild(stayBakerySectionText);
+        document.appendChild(stayBakerySection);
+        stayBakerySection.style.fontFamily = 'monospace';
+        stayBakerySection.style.color = 'white';
+        stayBakerySection.innerHTML += "<h4> The creature can now be more clearly seen in the daylight. It looks like it used to be human at one point but now it is a horribily mutated creature. The creature has ingrown scales where it's flesh used to be and it's eyes are melting out of its eye sockets. It begins sniffing your pockets, what do you do? The End.";
+        
+        // create options
+        
+        if (playerInventory.contains("kill")) {
+            
+            const killSection = document.createElement("section");
+            const killSectiontext = document.createTextNode("You act as quick as you can and stab the creature, and hear its screams as the creature screams in pain, falling to the floor");
+
+            killSection.appendChild(killSectiontext);
+            document.appendChild(killSection);
+
+            killSection.style.fontFamily = 'monospace';
+            killSection.style.color = 'white';
+        }
+
+        if(playerInventory.contains("memory")) {
+
+            const memorySection = document.createElement("section");
+            const memorySectionText = document.createTextNode("Just as the creature lunges at you, you wave the your old teddy bear in front of its face. At first it doesn't seem to be very effective, but it slowly grasps it in its hands. It hugs it, and slowly leaves the bakery. The end.");
+            
+            memorySection.appendChild(memorySectionText);
+            document.appendChild(memorySection);
+
+            memorySection.style.fontFamily = 'monospace';
+            memorySection.style.color = 'white';
+        }
+
+        if(playerInventory.contains("housewife")) {
+            const housewifeSection = document.createElement("section");
+            const housewifeSectionText = document.createTextNode("You offer chips for the creature to consume, but you are confused when after the creature eats it, it sits in front of you, seemingly asking for more food. You spend the rest of the day making cakes in the abandoned bakery for it to consume. The end.");
+            
+            housewifeSection.appendChild(housewifeSectionText);
+            document.appendChild(housewifeSection);
+
+            housewifeSection.style.fontFamily = 'monospace';
+            housewifeSection.style.color = 'white';
+
+        
+        }
+
+        if(playerInventory.contains("ruler")) {
+            const rulerSection = document.createElement("section");
+            const rulerSectionText = document.createTextNode("You show the creature the crown you found, and the creature stares at it. It makes a strange sound and other creatures suddenly come into through some broken windows. They appear to have chosen you as their new ruler. The End.");
+        }
+        
+
+    }
+
+    // func bakery run
+
+    function runBakery() {
+
+        const runBakerySection = document.createElement("section");
+        const runBakerySectionText = document.createTextNode("You try to run but the door is locked and the creature keeps coming closer...");
+
+        runBakerySection.appendChild(runBakerySectionText);
+        document.appendChild(runBakerySection);
+
+        runBakerySection.style.fontFamily = 'monospace';
+        runBakerySection.style.color = 'white';
+
+        if (playerInventory.contains("kill")) {
+            
+            const killSectionRun = document.createElement("section");
+            const killSectiontextRun = document.createTextNode("You act as quick as you can and stab the creature, and hear its screams as the creature screams in pain, falling to the floor");
+
+            killSectionRun.appendChild(killSectiontextRun);
+            document.appendChild(killSectionRun);
+
+            killSectionRun.style.fontFamily = 'monospace';
+            killSectionRun.style.color = 'white';
+        }
+
+        if(playerInventory.contains("memory")) {
+
+            const memorySectionRun = document.createElement("section");
+            const memorySectionTextRun = document.createTextNode("Just as the creature lunges at you, you wave the your old teddy bear in front of its face. At first it doesn't seem to be very effective, but it slowly grasps it in its hands. It hugs it, and slowly leaves the bakery. The end.");
+            
+            memorySectionRun.appendChild(memorySectionTextRun);
+            document.appendChild(memorySectionRun);
+
+            memorySectionRun.style.fontFamily = 'monospace';
+            memorySectionRun.style.color = 'white';
+        }
+
+        if(playerInventory.contains("housewife")) {
+            const housewifeSectionRun = document.createElement("section");
+            const housewifeSectionTextRun = document.createTextNode("You offer chips for the creature to consume, but you are confused when after the creature eats it, it sits in front of you, seemingly asking for more food. You spend the rest of the day making cakes in the abandoned bakery for it to consume. The end.");
+            
+            housewifeSectionRun.appendChild(housewifeSectionTextRun);
+            document.appendChild(housewifeSectionRun);
+
+            housewifeSectionRun.style.fontFamily = 'monospace';
+            housewifeSectionRun.style.color = 'white';
+
+        
+        }
+
+        if(playerInventory.contains("ruler")) {
+            const rulerSectionRun = document.createElement("section");
+            const rulerSectionTextRun = document.createTextNode("You show the creature the crown you found, and the creature stares at it. It makes a strange sound and other creatures suddenly come into through some broken windows. They appear to have chosen you as their new ruler. The End.");
+            
+            rulerSectionRun.appendChild(rulerSectionTextRun);
+            document.appendChild(rulerSectionRun);
+
+            rulerSectionRun.style.fontFamily = 'monospace';
+            rulerSectionRun.style.color = 'white';
+        }
+    }
+    
+
+}
+
+
 
 };
 
 
+// Bakery Function
 
 
+
+
+
+//const locations = [
+        //{
+          //  name : "Bakery",
+            //img : "https://i.redd.it/dlkoxge42i841.jpg",
+        //},

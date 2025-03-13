@@ -51,3 +51,10 @@ body {
     color: white;
     background-color: #999371;
 }
+
+/* changing the font of the website */
+
+#journey3 {
+    font-family: monospace;
+    color: white; 
+}
